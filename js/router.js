@@ -1,5 +1,5 @@
 define(['app'],function(app){
-    app.config(['$stateProvider','$urlRouterProvider',function ($stateProvider,$urlRouterProvider) {
+    return app.config(['$stateProvider','$urlRouterProvider',function ($stateProvider,$urlRouterProvider) {
         //当用户浏览到    =>  /Child,
         // 该应用将状态改为 =>  ChildState,
         // 同时向主 =>  ui-view 元素中插入   =>  template    =>  中的内容
