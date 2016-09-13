@@ -1,4 +1,5 @@
 define(['app'],function(app){
+    var uiRouter=requirejs('angular-ui-router');
     return app.config(['$stateProvider','$urlRouterProvider',function ($stateProvider,$urlRouterProvider) {
         //当用户浏览到    =>  /Child,
         // 该应用将状态改为 =>  ChildState,

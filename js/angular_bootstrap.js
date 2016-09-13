@@ -1,12 +1,12 @@
 define([
     "require",
     "angular",
-    "angualr-ui-router",
+    "angular-ui-router",
     "jquery",
     "app",
     "router"
 ],function(require,angular){
     require(['domReady!'],function (document) {
-        angular.bootstrap(document,['app']);
+        angular.bootstrap(document,['myApp']);
     })
 });

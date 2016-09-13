@@ -11,29 +11,12 @@
   <script src="node_modules/requirejs/require.js" data-main="js/main.js"></script>
 
   file:  js/main.js
-  require.config({
-      paths:{
-          'jquery':'../node_modules/jquery/dist/jquery',
-          'angular':'../node_modules/angular/angular',
-          'require':'../node_modules/requirejs/require',
-          'ui_router':'../node_modules/angular-ui-router/release/angular-ui-router',
-          'bootstrap':'../node_modules/bootstrap/dist/js/bootstrap'
-      },
-      shim:{
-          'angular':{
-              deps:['jquery','ui_router','bootstrap'],
-              'exports':'angular'
-          }
-      },
-      deps:['angular_bootstrap']
-  });
+  配置引入js路径文件，和优先加载某些js，解决js加载依赖关系
+
 
   file: js/angular_bootstrap.js
-  require(["angular","app","config"],function(angular,app,config){
-      angular.bootstrap(document,["app"]);
-  });
+  初始化，运行angular应用
+
 
   file: js/app.js
-  define(["angular"],function(angular){
-      return angular.module("app",['ui.router']);
-  });
+  定义angular模块，加载依赖

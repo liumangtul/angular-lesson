@@ -1,3 +1,3 @@
-define(["angular","angualr-ui-router"],function(angular){
-    return angular.module("app",['ui.router']);
+define(["angular","angular-ui-router"],function(angular){
+    return angular.module("myApp",['ui.router']);
 })
