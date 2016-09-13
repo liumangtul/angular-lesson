@@ -1,0 +1,16 @@
+require.config({
+    paths:{
+        'jquery':'../node_modules/jquery/dist/jquery',
+        'angular':'../node_modules/angular/angular',
+        'require':'../node_modules/requirejs/require',
+        'ui_router':'../node_modules/angular-ui-router/release/angular-ui-router',
+        'bootstrap':'../node_modules/bootstrap/dist/js/bootstrap'
+    },
+    shim:{
+        'angular':{
+            deps:['jquery','ui_router','bootstrap'],
+            'exports':'angular'
+        }
+    },
+    deps:['angular_bootstrap']
+});
