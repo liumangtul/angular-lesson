@@ -6,7 +6,8 @@ define([
     "app",
     "router"
 ],function(require,angular){
-    require(['domReady!'],function (document) {
-        angular.bootstrap(document,['myApp']);
-    })
+    angular.bootstrap(document,['myApp']);
+    /*require(['domReady!'],function (document) {
+
+    })*/
 });
