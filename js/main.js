@@ -6,6 +6,8 @@ require.config({
         'angular-ui-router':'../node_modules/angular-ui-router/release/angular-ui-router',
         'bootstrap':'../node_modules/bootstrap/dist/js/bootstrap',
         'domReady': 'http://cdn.staticfile.org/require-domReady/2.0.1/domReady.min',
+        //'rootControllers':'controllers/rootController',
+        //'homeController':'controllers/homeController'
     },
     shim:{
         'bootstrap':{

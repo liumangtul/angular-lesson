@@ -1,0 +1,6 @@
+/*
+define([
+    'homeController'
+],function (homeCtrl) {
+
+});*/

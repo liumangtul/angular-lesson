@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <script src="node_modules/angular/angular.js"></script>
+    <script>
+        var app=angular.module('app',[]);
+        app.controller('supermanController',['$scope',function($scope){
+        }]);
+        app.directive('superman',function(){
+            return {
+                //独立的scope
+                scope:{},
+                restrict:'ECMA',
+                replace:true,
+                controller:function($scope){
+                    $scope.abilities=[];
+                    this.addStrength=function(){
+                        $scope.abilities.push('strength');
+                    };
+                    this.addSpeed=function(){
+                        $scope.abilities.push('speed');
+                    };
+                    this.addLight=function(){
+                        $scope.abilities.push('light');
+                    };
+                },
+                link:function(scope,element,attrs){
+                    element.addClass("btn btn-primary");
+                    element.bind('mouseenter',function(){
+                        console.log(scope.abilities);
+                    })
+                }
+            }
+        });
+        app.directive('strength',function(){
+            return {
+                require:'^superman',
+                link:function(scope,element,attrs,supermanController){
+                    supermanController.addStrength();
+                }
+            }
+        });
+        app.directive('speed',function(){
+            return {
+                require:'^superman',
+                link:function(scope,element,attrs,supermanController){
+                    supermanController.addSpeed();
+                }
+            }
+        });
+        app.directive('light',function(){
+           return {
+               require:'^superman',
+               link:function(scope,element,attrs,supermanController){
+                   supermanController.addLight();
+               }
+           }
+        });
+    </script>
+</head>
+<body>
+    <div ng-app="app">
+        <div ng-controller="supermanController">
+            <div class="row">
+                <div class="col-md-3">
+                    <superman strength >superman --strength</superman>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <superman strength speed >superman --strength speed</superman>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-mo-3">
+                    <superman strength speed light >superman --strength speed light</superman>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

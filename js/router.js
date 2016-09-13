@@ -47,7 +47,10 @@ define(['app'],function(app){
                     },
                     //首页ui-view
                     'rootView.ContentView':{
-                        templateUrl: "tpls/index/home.html"
+                        templateUrl: "tpls/index/home.html",
+                        controller:function($scope){
+                            $scope.a='A';
+                        }
                     }
                 }
             })
