@@ -1,10 +1,9 @@
-/*
 define([
     'require',
     'angular',
     'app'
 ],function(require,angular,app){
-    return app.controller('supermanController',['$scope',function($scope){
-        $scope.a='A';
+    return app.controller('homeController',['$scope',function($scope){
+        $scope.home='HOME：superMan';
     }]);
-});*/
+});

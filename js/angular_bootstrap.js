@@ -4,9 +4,10 @@ define([
     "angular-ui-router",
     "jquery",
     "app",
-    "router"//,
-   // "rootControllers"
-],function(require,angular,uiRouter,$,app,router/*,rootCtrl*/){
+    "router",
+    "rootControllers",
+    "rootDirective"
+],function(require,angular,uiRouter,$,app,router,rootCtrl,rootDirective){
     require(['domReady!'],function (document) {
         angular.bootstrap(document,['myApp']);
     })

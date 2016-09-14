@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arr-json-多个合并</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    //三个表都是顺序的
+    /*
+    * arr1 总表
+    * arr2 总表里id有的内容1
+    * arr3 总表里id有的内容2
+    * 把arr1,arr2,arr3合并到newArr里
+    * */
+    var arr1=[{
+            id:1,
+            name:{str:'a'}
+        },{
+            id:2,
+            name:{str:'b'}
+        },{
+            id:3,
+            name:{str:'c'}
+        },{
+            id:4,
+            name:{str:'d'}
+        },{
+            id:5,
+            name:{str:'e'}
+        },{
+            id:6,
+            name:{str:'f'}
+        },{
+            id:7,
+            name:{str:'g'}
+        }];
+    var arr2=[{
+            r_id:3,
+            title:{text:'Tc'}
+        },{
+            r_id:5,
+            title:{text:'Te'}
+        }];
+    var arr3=[{
+            s_id:4,
+            other:'ddd'
+    },{
+            s_id:5,
+            other:'eee'
+    }];
+    var arr=[];
+    var j=0,x=0,isCompare=false;
+    for(var i=0;i<arr1.length;i++){
+        var json1={},json2={};
+        isCompare=false;
+        if(arr2[j]){
+            if(arr1[i].id==arr2[j].r_id){
+                isCompare=true;
+                json1=Object.assign({},arr1[i],arr2[j]);
+                j++;
+            };
+        };
+        if(arr3[x]){
+            if(arr1[i].id==arr3[x].s_id){
+                isCompare=true;
+                json2=Object.assign({},arr1[i],arr3[x]);
+                x++;
+            };
+        };
+        if(!isCompare){
+            //arr.push(arr1[i])
+        }else{
+            console.log(json1,json2)
+            arr.push(Object.assign(json1,json2));
+        };
+    };
+    document.body.innerHTML=JSON.stringify(arr);
+</script>
+
+<!--情景模拟-->
+<!--<p>一个表是公司表,n个公司</p>
+<p>一个表是员工表,n个公司所有员工</p>-->
+<!--
+<script>
+    var companys=[{
+        com_id:1,
+        name:'360jiyin'
+    },{
+        com_id:2,
+        name:'maien'
+    },{
+        com_id:3,
+        name:'hua'
+    }];
+    var peoples=[{
+        com_id:2,
+        name:'wangyan'
+    },{
+        com_id:3,
+        name:'shaobo'
+    }];
+</script>-->

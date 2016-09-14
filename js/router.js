@@ -60,7 +60,8 @@ define(['app'],function(app){
                 views:{
                     //首页ui-view
                     'ContentView':{
-                        templateUrl: "tpls/index/home.html"
+                        templateUrl: "tpls/index/home.html",
+                        controller:'homeController'
                     }
                 }
             })

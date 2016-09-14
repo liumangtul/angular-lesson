@@ -6,8 +6,14 @@ require.config({
         'angular-ui-router':'../node_modules/angular-ui-router/release/angular-ui-router',
         'bootstrap':'../node_modules/bootstrap/dist/js/bootstrap',
         'domReady': 'http://cdn.staticfile.org/require-domReady/2.0.1/domReady.min',
-        //'rootControllers':'controllers/rootController',
-        //'homeController':'controllers/homeController'
+        'rootControllers':'controllers/rootController',
+        'homeController':'controllers/homeController',
+        'joinJsonController':'controllers/joinJsonController',
+        'rootDirective':'directives/rootDirective',
+        'supermanDirective':'directives/supermanDirective/supermanDirective',
+        'strengthDirective':'directives/supermanDirective/strengthDirective',
+        'speedDirective':'directives/supermanDirective/speedDirective',
+        'lightDirective':'directives/supermanDirective/lightDirective'
     },
     shim:{
         'bootstrap':{
