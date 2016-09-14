@@ -1,6 +1,4 @@
 define([
     'homeController',
     'joinJsonController'
-],function (homeCtrl) {
-
-});
+],function (homeCtrl) {});

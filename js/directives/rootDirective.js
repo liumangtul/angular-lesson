@@ -3,6 +3,4 @@ define([
     'strengthDirective',
     'speedDirective',
     'lightDirective'
-],function(){
-
-});
+],function(){});
