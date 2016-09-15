@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular-分页</title>
+    <script src="node_modules/angular/angular.js"></script>
+</head>
+<body ng-app="app">
+<p>有问题的分页模式-自定义</p>
+<p>http://www.ddhigh.com/2015/04/angularjs-page-directive/</p>
+    <!--指令调用代码-->
+    <div ng-controller="CourseListController">
+        <xl-page size="30" method="loadfn"></xl-page>
+    </div>
+</body>
+</html>
+
+<script>
+    var app=angular.module('app',[]);
+    //指令部分
+    var xlPage=app.directive('xlPage', [function () {
+        return {
+            restrict:'ECMA',
+            scope:{
+                loadfn:'&method'
+            },
+            transclude:true,
+            replace: true,
+            templateUrl:'./tpls/page.html',
+            link: function (scope, ele, attrs) {
+                scope.currentPage = 1;//当前页数
+                scope.count = 0;//总条数
+                scope.pageSize = attrs.size;//分页大小
+                scope.totalPage = 1;//总页数
+                scope.pages = [];//分页数组
+                if (!scope[attrs.method]) {
+                    alert(attrs.method+';'+'error')
+                    throw new Error('load method is undefined');
+                }
+
+                scope.next = function () {
+                    if (scope.currentPage < scope.totalPage) {
+                        scope.currentPage++;
+                        scope.getData();
+                    }
+                };
+                scope.prev = function () {
+                    if (scope.currentPage > 1) {
+                        scope.currentPage--;
+                        scope.getData();
+                    }
+                };
+                //调用
+                scope.getData = function (page) {
+                    page && (scope.currentPage = page);
+                    scope[attrs.method]()(scope.currentPage, scope.pageSize, function (data) {
+                        scope.totalPage = Math.ceil(data.count / scope.pageSize);
+                        if (scope.currentPage > 1 && scope.currentPage < scope.totalPage) {
+                            scope.pages = [
+                                scope.currentPage - 1,
+                                scope.currentPage,
+                                scope.currentPage + 1
+                            ];
+                        } else if (scope.currentPage == 1 && scope.totalPage > 1) {
+                            scope.pages = [
+                                scope.currentPage,
+                                scope.currentPage + 1
+                            ];
+                        } else if (scope.currentPage == scope.totalPage && scope.totalPage > 1) {
+                            scope.pages = [
+                                scope.currentPage - 1,
+                                scope.currentPage
+                            ];
+                        }else{}
+                        scope.list = data.list;
+                        console.log(scope.list)
+                    });
+                };
+                scope.getData();
+            }
+        }
+    }]);
+
+    //控制器部分
+    var CourseListController=app.controller('CourseListController', ['$rootScope', '$scope', '$http', function ($rootScope, $scope, $http) {
+        $scope.list = [];
+        $scope.keyword = '';
+        $scope.loadfn = function (page, size, callback) {
+            /*$http.get($rootScope.api + '/course/list?keyword=' + $scope.keyword + '&page=' + page + '&size=' + size).success(function (data) {
+                callback && callback(data);
+            });*/
+            var data={
+                "count": "2",
+                "list": [
+                    {
+                        "user_id": "12",
+                        "email": "admin@ddhigh.com",
+                        "nickname": "拖鞋",
+                        "avatar": "http://q.qlogo.cn/qqapp/101191761/0D040ED029959BB79FD1A0927FD48989/100",
+                        "sex": "1",
+                        "status": "1",
+                        "phone": "",
+                        "description": null,
+                        "created_at": "1427303955",
+                        "score": "0"
+                    },
+                    {
+                        "user_id": "4",
+                        "email": "xxx@qq.com",
+                        "nickname": "111",
+                        "avatar": "",
+                        "sex": "1",
+                        "status": "1",
+                        "phone": "",
+                        "description": null,
+                        "created_at": "1426777188",
+                        "score": "0"
+                    }
+                ]
+            }
+            for(var i=0;i<100;i++){
+                data.list.push({
+                    "user_id": 4+i,
+                    "email": (i+3)+"xxx@qq.com",
+                    "nickname": (i+3)+"_111",
+                    "avatar": "",
+                    "sex": "1",
+                    "status": "1",
+                    "phone": "",
+                    "description": null,
+                    "created_at": (i+3)+"1426777188",
+                    "score": "0"
+                })
+            };
+            callback && callback(data);
+        };
+        //console.log('ctrl',$scope)
+    }]);
+</script>

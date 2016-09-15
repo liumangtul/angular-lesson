@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>可以应用的分页插件</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="app">
+<p>引用自:http://www.jscssshare.com/#/sample/RqO4FrzO</p>
+<p>uib-pagination 插件实现</p>
+<p>http://www.jscssshare.com/#/allSampleList</p>
+    <div ng-controller="myCtrl">
+        <uib-pagination total-items="page.totalCount" ng-model="page.pageNo" max-size="5"  ng-change="pageChanged()" class="samplePage pagination-sm" boundary-link-numbers="true">
+        </uib-pagination>
+    </div>
+
+</body>
+</html>
+<script>
+    var pageApp = angular.module("app",['ui.bootstrap']);
+    pageApp.controller("myCtrl",["$scope",function($scope){
+        $scope.page = {
+            "pageSize":10,"pageNo":2,"totalCount":99};
+        $scope.pageChanged = function(){
+
+        }
+
+    }]);
+</script>

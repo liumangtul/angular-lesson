@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ui-Grid Example01</title>
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+   <!-- <link rel="stylesheet" href="node_modules/ng-table/dist/ng-table.css"/>-->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="node_modules/ng-table/dist/ng-table.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
+</head>
+<body>
+<div ng-app="myApp">
+    <div ng-controller="demoController as demo">
+        <h2 class="page-header">Angular ngTable: server-side list</h2>
+        <table ng-table="demo.tableParams" show-filter="true" class="table table-bordered table-striped">
+            <tr ng-repeat="row in $data track by row.id">
+                <td title="'Powered By Icon'" filter="{poweredByIcon: 'text'}" sortable="'poweredByIcon'">{{row.id}}</td>
+                <td title="'Installation At'" filter="{installationAt: 'text'}" sortable="'installationAt'">{{row.text}}</td>
+                <td title="'Admin Email'" filter="{adminEmail: 'text'}" sortable="'adminEmail'">{{row.adminEmail}}</td>
+                <td title="'Powered By'" filter="{poweredBy: 'text'}" sortable="'poweredBy'">{{row.title}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var app = angular.module('myApp', ['ngTable', 'ngResource']);
+    app.controller("demoController", ['$scope','NgTableParams','$resource',function($scope,NgTableParams,$resource){
+        // tip: to debug, open chrome dev tools and uncomment the following line
+        //debugger;
+
+        var Api = $resource('/data');
+        this.tableParams = new NgTableParams({
+            page: 1, // show first page
+            count: 10 // count per page
+        }, {
+            filterDelay: 300,
+            getData: function(params) {
+                // ajax request to api1
+                /*return Api.get(params.url()).$promise.then(function(data) {
+                    params.total(data.inlineCount);
+                    return data.results;
+                });*/
+                var data={
+                    result:[],
+                    inlineCount:10
+                };
+                for(var i=0;i<200;i++){
+                    data.result.push({
+                        id:i+1,
+                        title:'wangyan'+(i+1),
+                        text:'噼里啪啦'+(i+1),
+                        adminEmail:(i+1)+'@mail.com'
+                    })
+                };
+                console.log(data)
+                params.total(data.inlineCount);
+                return data.result;
+            }
+        });
+    }]);
+</script>
