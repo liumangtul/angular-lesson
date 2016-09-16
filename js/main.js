@@ -8,6 +8,7 @@ require.config({
         'ui-bootstrap-tpls':'lib/ui-bootstrap-tpls',
         'ui-bootstrap':'../node_modules/angular-ui-bootstrap/dist/ui-bootstrap',
         'domReady': 'http://cdn.staticfile.org/require-domReady/2.0.1/domReady.min',
+        'angular-animate':'../node_modules/angular-animate/angular-animate',
 
         //控制器
         'rootControllers':'controllers/rootController',
@@ -15,6 +16,7 @@ require.config({
         'joinJsonController':'controllers/joinJsonController',
         'angularUiPaginationController':'controllers/AngularUI/angularUiPaginationController',
         'directiveShareController':'controllers/AngularUI/directiveShareController',
+        'accordionController':'controllers/AngularUI/accordionController',
 
         //指令
         'rootDirective':'directives/rootDirective',
@@ -41,6 +43,9 @@ require.config({
         },
         'ui-bootstrap-tpls':{
             deps:['ui-bootstrap']
+        },
+        'angular-animate':{
+            deps:['angular']
         }
     },
     deps:['angular_bootstrap'],

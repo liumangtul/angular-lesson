@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+</head>
+<body ng-app="app" ng-controller="myCtrl">
+    <p>
+        <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">面板切换</button>
+        <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">启用、禁用第一个模版</button>
+    </p>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ng-model="oneAtATime"> 一次只打开一个
+        </label>
+    </div>
+    <uib-accordion close-others="oneAtATime">
+
+        <uib-accordion-group heading="默认header, 基本扩展" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+            This content is straight in the template.
+        </uib-accordion-group>
+
+        <uib-accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+            {{group.content}}
+        </uib-accordion-group>
+
+        <uib-accordion-group heading="静态header,动态content">
+            <p>The body of the uib-accordion group grows to fit the contents</p>
+            <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">添加项目</button>
+            <div ng-repeat="item in items">{{item}}</div>
+        </uib-accordion-group>
+
+        <uib-accordion-group heading="删除内容" panel-class="panel-danger">
+            <p>Please, to delete your account, click the button below</p>
+            <button class="btn btn-danger">Delete</button>
+        </uib-accordion-group>
+
+        <uib-accordion-group is-open="status.open">
+            <uib-accordion-heading>
+                I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}">展开</i>
+            </uib-accordion-heading>
+            This is just some content to illustrate fancy headings.
+        </uib-accordion-group>
+
+    </uib-accordion>
+</body>
+<script>
+    angular.module('app', ['ngAnimate', 'ui.bootstrap'])
+            .controller('myCtrl', ['$scope', function($scope) {
+                $scope.oneAtATime = true;
+
+                $scope.groups = [{
+                    title: '动态header - 1',
+                    content: '动态body - 1'
+                }, {
+                    title: '动态header - 2',
+                    content: '动态body - 2'
+                }];
+
+                $scope.items = ['项目 1', '项目 2', '项目 3'];
+
+                $scope.addItem = function() {
+                    var newItemNo = $scope.items.length + 1;
+                    $scope.items.push('新项目 ' + newItemNo);
+                };
+
+                $scope.status = {
+                    isFirstOpen: true,
+                    isFirstDisabled: false
+                };
+            }])
+</script>
+</html>

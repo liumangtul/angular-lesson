@@ -8,9 +8,10 @@ define([
     "rootControllers",
     "rootDirective",
     "ui-bootstrap",
-    "ui-bootstrap-tpls"
+    "ui-bootstrap-tpls",
+    "angular-animate"
 ],function(uiRouter,$,app,router,rootCtrl,rootDirective){
     require(['domReady!'],function (document) {
-        angular.bootstrap(document,['myApp']);
+        angular.bootstrap(document,['myApp','ngAnimate']);
     })
 });

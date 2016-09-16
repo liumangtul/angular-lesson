@@ -156,6 +156,15 @@ define([
                     }
                 }
             })
+            .state('rootState.AngularUIstate.accordionState',{
+                url:'/accordion',
+                views:{
+                    'angularUiContent':{
+                        templateUrl:'tpls/AngularUI/accordion.html',
+                        controller:'accordionController'
+                    }
+                }
+            })
 
     }]);
 });

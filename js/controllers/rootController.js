@@ -2,5 +2,6 @@ define([
     'homeController',
     'joinJsonController',
     'angularUiPaginationController',
-    'directiveShareController'
+    'directiveShareController',
+    'accordionController'
 ],function () {});
