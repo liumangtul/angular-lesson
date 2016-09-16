@@ -52,9 +52,7 @@ define([
                     //首页ui-view
                     'rootView.ContentView':{
                         templateUrl: "tpls/index/home.html",
-                        controller:function($scope){
-                            $scope.a='A';
-                        }
+                        controller:'homeController'
                     }
                 }
             })
@@ -138,6 +136,15 @@ define([
                     'angularUiContent':{
                         templateUrl:'tpls/AngularUI/AngularUI-pagination.html',
                         controller:'angularUiPaginationController'
+                    }
+                }
+            })
+            .state('rootState.AngularUIstate.directiveShareState',{
+                url:'/directiveShare',
+                views:{
+                    'angularUiContent':{
+                        templateUrl:'tpls/AngularUI/directiveControllerShare.html',
+                        controller:'directiveShareController'
                     }
                 }
             })

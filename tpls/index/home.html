@@ -1,15 +1,19 @@
 <!--首页-->
-<div ng-controller="homeController">
-    <h1>{{home}}</h1>
-    <div class="row container">
-        <div class="col-md-2">
-            <superman strength>superMan:strength</superman>
-        </div>
-        <div class="col-md-3">
-            <superman strength speed>superMan:strength speed</superman>
-        </div>
-        <div class="col-md-3">
-            <superman strength speed light>superMan:strength speed light</superman>
-        </div>
+<div ng-controller="homeController" class="row container">
+    <div class="col-md-12">
+        <h1 class="text-info">{{title}}</h1>
+        <p class="alert-info alert row">
+            这里主要讲解|演示的是关于学习AngularJs 1.x中遇到的一些实际情况。
+            一切从实际出发,注重MVV*模式。
+        </p>
+        <pre class="text-info mark">
+
+            RequireJs
+            AngularJs 1.x
+            BootStrap 3.x
+            AngularUI
+
+            UI-Router   UI-bootstrap   UI-Grid  ... ...
+        </pre>
     </div>
 </div>

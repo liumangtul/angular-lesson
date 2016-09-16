@@ -14,6 +14,7 @@ require.config({
         'homeController':'controllers/homeController',
         'joinJsonController':'controllers/joinJsonController',
         'angularUiPaginationController':'controllers/AngularUI/angularUiPaginationController',
+        'directiveShareController':'controllers/AngularUI/directiveShareController',
 
         //指令
         'rootDirective':'directives/rootDirective',

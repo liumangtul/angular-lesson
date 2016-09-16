@@ -24,7 +24,7 @@ define([
             link:function(scope,element,attrs){
                 element.addClass("btn btn-primary");
                 element.bind('mouseenter',function(){
-                    console.log(scope.abilities);
+                    $('.alert-my').text(scope.abilities);
                 })
             }
         }

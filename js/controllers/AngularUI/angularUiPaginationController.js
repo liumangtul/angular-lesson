@@ -6,7 +6,7 @@ define([
     'ui-bootstrap-tpls'
 ],function(require,angular,app){
     return app.controller("angularUiPaginationController",["$scope",function($scope){
-        $scope.page = {"pageSize":10,"pageNo":2,"totalCount":99};
+        $scope.page = {"pageSize":10,"pageNo":2,"totalCount":300};
         $scope.pageChanged = function(){
         }
     }]);
