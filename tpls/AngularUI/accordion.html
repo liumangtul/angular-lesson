@@ -1,4 +1,25 @@
 <div class="container col-md-12" ng-controller="accordionController">
+    <pre class="text-info">
+        讲解一下
+        <pre class="alert-warning">
+            引自:
+            国人博客
+            http://www.cnblogs.com/HeJason/p/5316075.html
+            UI Bootstrap官网-需翻墙
+            http://angular-ui.github.io/bootstrap/
+            吐槽:相见恨晚,为啥木有中文
+        </pre>
+        Accordion 分为两个部分
+　　　　<strong class="label-info">1.uib-accordion</strong>
+　　　　　　close-others：支持表达式和常量（默认：true), 只允许打开一个？
+　　　　　　template-url:（默认template/accordion/accordion.html）模板地址
+　　　　<strong class="label-info">2.uib-accordion-group</strong>
+　　　　　　heading ： 默认（空）
+　　　　　　is-open：支持表达式，并且可$watch（默认:false）
+　　　　　　is-disabled:支持表达式，并且可$watch（默认:false）
+　　　　　　panel-class : 可$watch（默认：panel-default）
+　　　　　　template-url ： （默认：uib/template/accordion/accordion-group.html）
+    </pre>
     <p>
         <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">面板切换</button>
         <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">启用、禁用第一个模版</button>
