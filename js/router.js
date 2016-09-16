@@ -1,4 +1,8 @@
-define(['app'],function(app){
+define([
+    'require',
+    'angular',
+    'app'
+],function(require,angular,app){
     return app.config(['$stateProvider','$urlRouterProvider',function ($stateProvider,$urlRouterProvider) {
         //当用户浏览到    =>  /Child,
         // 该应用将状态改为 =>  ChildState,
@@ -110,6 +114,38 @@ define(['app'],function(app){
                 views:{
                     'ShowView':{
                         templateUrl:'tpls/aboutUs/ccc.html'
+                    }
+                }
+            })
+            //AngularUI主页面
+            .state('rootState.AngularUIstate',{
+                url:'/angularUI',
+                views:{
+                    'ContentView':{
+                        templateUrl:'tpls/AngularUI/AngularUImain.html',
+                    },
+                    'ContentView.angularUiSideNav':{
+                        templateUrl:'tpls/AngularUI/AngularUiSideNavBar.html'
+                    },
+                    'ContentView.angularUiContent':{
+                        templateUrl:'tpls/AngularUI/AngularUI-pagination.html'
+                    }
+                }
+            })
+            .state('rootState.AngularUIstate.paginationState',{
+                url:'/pagination',
+                views:{
+                    'angularUiContent':{
+                        templateUrl:'tpls/AngularUI/AngularUI-pagination.html',
+                        controller:'angularUiPaginationController'
+                    }
+                }
+            })
+            .state('rootState.AngularUIstate.otherState',{
+                url:'/other',
+                views:{
+                    'angularUiContent':{
+                        templateUrl:'tpls/AngularUI/AngularUIother.html'
                     }
                 }
             })

@@ -1,4 +1,5 @@
 define([
     'homeController',
-    'joinJsonController'
+    'joinJsonController',
+    'angularUiPaginationController'
 ],function (homeCtrl) {});
