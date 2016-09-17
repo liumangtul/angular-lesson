@@ -4,12 +4,14 @@ define([
     "angular-ui-router",
     "jquery",
     "app",
-    "router",
+    "rootRouter",
     "rootControllers",
     "rootDirective",
     "ui-bootstrap",
     "ui-bootstrap-tpls",
-    "angular-animate"
+    "angular-animate",
+    'rootService',
+    'rootFilter'
 ],function(uiRouter,$,app,router,rootCtrl,rootDirective){
     require(['domReady!'],function (document) {
         angular.bootstrap(document,['myApp','ngAnimate']);

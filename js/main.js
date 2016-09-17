@@ -10,20 +10,41 @@ require.config({
         'domReady': 'http://cdn.staticfile.org/require-domReady/2.0.1/domReady.min',
         'angular-animate':'../node_modules/angular-animate/angular-animate',
 
-        //控制器
+        //module
+        'app':'app',
+
+        //filter
+        'rootFilter':'filters/rootFilter',
+        'testFilter':'filters/testFilter',
+
+        //service
+        'rootService':'services/rootService',
+        'formSubmitService':'services/angularUI/formSubmitService',
+
+        //controller
         'rootControllers':'controllers/rootController',
         'homeController':'controllers/homeController',
         'joinJsonController':'controllers/joinJsonController',
         'angularUiPaginationController':'controllers/AngularUI/angularUiPaginationController',
         'directiveShareController':'controllers/AngularUI/directiveShareController',
         'accordionController':'controllers/AngularUI/accordionController',
+        'directiveScopeController':'controllers/AngularUI/directiveScopeController',
+        'formSubmitController':'controllers/AngularUI/formSubmitController',
 
-        //指令
+        //directive
         'rootDirective':'directives/rootDirective',
         'supermanDirective':'directives/supermanDirective/supermanDirective',
         'strengthDirective':'directives/supermanDirective/strengthDirective',
         'speedDirective':'directives/supermanDirective/speedDirective',
-        'lightDirective':'directives/supermanDirective/lightDirective'
+        'lightDirective':'directives/supermanDirective/lightDirective',
+        'directiveScopeDirective':'directives/directiveScopeDirective',
+
+        //router
+        'rootRouter':'routers/rootRouter',
+        'commonRouter':'routers/commonRouter',
+        'homeRouter':'routers/homeRouter',
+        'aboutUIrouter':'routers/aboutUIrouter',
+        'aboutUSrouter':'routers/aboutUSrouter'
     },
     shim:{
         'bootstrap':{

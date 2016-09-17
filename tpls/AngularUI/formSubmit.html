@@ -1,0 +1,21 @@
+<div class=""><!--ng-controller="formSubmitController"-->
+    <form action="/" name="testForm">
+        <pre class="alert-warning alert">
+            在router里已经在对应的view里定义了对应的controller,
+            这里就不需要重复定义了,
+            重复定义会出问题,
+            目前发现的是,会重复调用两次对应的controller,
+            是通过controller里调用自定义filter也执行两遍导致出现问题,返回结果重复发现的。
+        </pre>
+        <div class="form-group col-md-12">
+            <label class="col-md-2">用户名:</label>
+            <div class="col-md-10">
+                <input type="text" name="username" ng-required="true" ng-minlength="4" ng-model="data.username" class="form-control" placeholder="请输入用户名"/>
+                <div class="alert alert-danger help-block" ng-show="testForm.username.$error.required">{{testForm.username.$error}}</div>
+            </div>
+            <pre>
+                {{testForm.username | json}}
+            </pre>
+        </div>
+    </form>
+</div>

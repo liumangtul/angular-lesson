@@ -2,5 +2,6 @@ define([
     'supermanDirective',
     'strengthDirective',
     'speedDirective',
-    'lightDirective'
+    'lightDirective',
+    'directiveScopeDirective'
 ],function(){});

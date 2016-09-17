@@ -3,5 +3,7 @@ define([
     'joinJsonController',
     'angularUiPaginationController',
     'directiveShareController',
-    'accordionController'
+    'accordionController',
+    'directiveScopeController',
+    'formSubmitController'
 ],function () {});
