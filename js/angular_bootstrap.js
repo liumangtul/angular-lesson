@@ -14,9 +14,10 @@ define([
     "angular-animate",
     '_',
     'rootService',
-    'rootFilter'
+    'rootFilter',
+    //'angularRequire'
 ],function(){
     require(['domReady!'],function (document) {
-        angular.bootstrap(document,['myApp','ngAnimate','ui.grid','ngTable']);
+        angular.bootstrap(document,['myApp','ngAnimate','ui.grid','ngTable'/*,'ngRequire'*/]);
     })
 });

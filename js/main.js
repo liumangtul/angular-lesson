@@ -15,6 +15,7 @@ require.config({
 
         //module
         'app':'app',
+        //'angularRequire':'lib/angular-require',
 
         //filter
         'rootFilter':'filters/rootFilter',
@@ -82,7 +83,10 @@ require.config({
         },
         '_':{
             deps:['angular']
-        }
+        },
+       /* 'angularRequire':{
+            deps:['angular']
+        }*/
     },
     deps:['angular_bootstrap'],
     urlArgs: "bust=" + (new Date()).getTime()  //防止读取缓存，调试用
