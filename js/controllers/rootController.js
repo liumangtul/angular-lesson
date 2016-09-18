@@ -1,3 +1,4 @@
+/*
 define([
     'homeController',
     'joinJsonController',
@@ -9,3 +10,4 @@ define([
     'angularUIgridController',
     'angularTableController'
 ],function () {});
+*/

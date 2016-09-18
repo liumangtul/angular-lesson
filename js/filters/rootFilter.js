@@ -1,3 +1,6 @@
 define([
-    'testFilter'
+    'testFilter',
+    'orderClassFilter',
+    'pagingFilter',
+    'sizeFilter'
 ],function(){})

@@ -20,6 +20,9 @@ require.config({
         //filter
         'rootFilter':'filters/rootFilter',
         'testFilter':'filters/testFilter',
+        'orderClassFilter':'filters/AngularUI/orderClassFilter',
+        'pagingFilter':'filters/AngularUI/pagingFilter',
+        'sizeFilter':'filters/AngularUI/sizeFilter',
 
         //service
         'rootService':'services/rootService',

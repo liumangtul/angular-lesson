@@ -4,7 +4,7 @@ define([
     'angular',
     'app'
 ],function(require,angular,app){
-    return app.config(['$stateProvider','$urlRouterProvider',function ($stateProvider,$urlRouterProvider) {
+    return app.config(['$stateProvider','$urlRouterProvider','$controllerProvider','$filterProvider',function ($stateProvider,$urlRouterProvider,$controllerProvider,$filterProvider) {
         $stateProvider
             .state('rootState.AngularUIstate',{
                 url:'/angularUI',
@@ -80,6 +80,17 @@ define([
                         templateUrl:'tpls/AngularUI/AngularUIgrid.html',
                         controller:'angularUIgridController'
                     }
+                },
+                resolve: {
+                    angularUIgridController: function ($q) {
+                        var deferred = $q.defer();
+                        require(['angularUIgridController'], function (controller) {
+                           // console.log(controller)
+                            $controllerProvider.register('angularUIgridController', controller);
+                            deferred.resolve();
+                        });
+                        return deferred.promise;
+                    }
                 }
             })
             .state('rootState.AngularUIstate.tableState',{
@@ -87,7 +98,25 @@ define([
                 views:{
                     'angularUiContent':{
                         templateUrl:'tpls/AngularUI/AngularTable.html',
-                        controller:'angularTableController'
+                        controller:'angularTableController',
+                    }
+                },
+                resolve: {
+                    /*
+                     这个key值会被注入到controller中，对应的是后边这个function返回的值，或者promise最终resolve的值。函数的参数是所需的服务，angular会根据参数名自动注入
+                     对应controller写法（注意keyName）：
+                     controllers.controller('module2Controller', ['$scope', '$http', 'keyName',
+                     function($scope, $http, keyName) {
+                     }]);
+                     */
+                    angularTableController: function ($q) {
+                        var deferred = $q.defer();
+                        require(['angularTableController'], function (controller) {
+                            $controllerProvider.register('angularTableController', controller);      //由于是动态加载的controller，所以要先注册，再使用
+                            deferred.resolve();
+                        });
+                        console.log(deferred.promise)
+                        return deferred.promise;
                     }
                 }
             })

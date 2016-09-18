@@ -7,7 +7,7 @@ define([
     'ngTable',
     "app",
     "rootRouter",
-    "rootControllers",
+    //"rootControllers",
     "rootDirective",
     "ui-bootstrap",
     "ui-bootstrap-tpls",

@@ -6,35 +6,7 @@ define([
     /*app.controller('angularUIgridController', ['$scope','gridDataService', function($scope,gridDataService) {
         $scope.items=gridDataService;
     }])*/
-    app.filter('paging', function() {
-        return function (items, index, pageSize) {
-            if (!items)
-                return [];
-
-            var offset = (index - 1) * pageSize;
-            return items.slice(offset, offset + pageSize);
-        }
-    });
-
-    app.filter('size', function() {
-        return function (items) {
-            if (!items)
-                return 0;
-
-            return items.length || 0
-        }
-    });
-
-    app.filter('orderClass', function() {
-        return function (direction) {
-            if (direction === -1)
-                return "glyphicon-chevron-down";
-            else
-                return "glyphicon-chevron-up";
-        }
-    });
-
-    return app.controller('angularUIgridController', ['$scope',function ($scope) {
+    return function($scope){
         var vm = $scope.vm = {};
         vm.page = {
             size: 5,
@@ -107,5 +79,9 @@ define([
                 income: rand(1000, 100000) // 金额类型
             });
         }
-    }]);
+    };
+
+    /*return app.controller('angularUIgridController', ['$scope',function ($scope) {
+
+    }]);*/
 })
