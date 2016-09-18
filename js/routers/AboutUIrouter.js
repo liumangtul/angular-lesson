@@ -82,10 +82,26 @@ define([
                     }
                 },
                 resolve: {
+                    sizeFilter: ["$q", function($q) {
+                        var deferred = $q.defer();
+                        //异步加载controller／directive/filter/service
+                        require([
+                            'sizeFilter'
+                        ], function() {
+                            require(['sizeFilter'], function (filter) {
+                                // console.log(controller)
+                                $filterProvider.register('sizeFilter', filter);
+                                alert('filter')
+                                console.log(filter)
+                                deferred.resolve();
+                            });
+                            deferred.resolve();
+                        });
+                        return deferred.promise;
+                    }],
                     angularUIgridController: function ($q) {
                         var deferred = $q.defer();
                         require(['angularUIgridController'], function (controller) {
-                           // console.log(controller)
                             $controllerProvider.register('angularUIgridController', controller);
                             deferred.resolve();
                         });
