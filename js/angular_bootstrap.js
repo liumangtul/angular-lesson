@@ -3,6 +3,8 @@ define([
     "require",
     "angular-ui-router",
     "jquery",
+    "uiGrid",
+    'ngTable',
     "app",
     "rootRouter",
     "rootControllers",
@@ -10,10 +12,11 @@ define([
     "ui-bootstrap",
     "ui-bootstrap-tpls",
     "angular-animate",
+    '_',
     'rootService',
     'rootFilter'
-],function(uiRouter,$,app,router,rootCtrl,rootDirective){
+],function(){
     require(['domReady!'],function (document) {
-        angular.bootstrap(document,['myApp','ngAnimate']);
+        angular.bootstrap(document,['myApp','ngAnimate','ui.grid','ngTable']);
     })
 });

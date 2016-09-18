@@ -5,5 +5,7 @@ define([
     'directiveShareController',
     'accordionController',
     'directiveScopeController',
-    'formSubmitController'
+    'formSubmitController',
+    'angularUIgridController',
+    'angularTableController'
 ],function () {});

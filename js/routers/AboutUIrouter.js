@@ -73,5 +73,23 @@ define([
                     }
                 }
             })
+            .state('rootState.AngularUIstate.UIgridState',{
+                url:'/UIgrid',
+                views:{
+                    'angularUiContent':{
+                        templateUrl:'tpls/AngularUI/AngularUIgrid.html',
+                        controller:'angularUIgridController'
+                    }
+                }
+            })
+            .state('rootState.AngularUIstate.tableState',{
+                url:'/table',
+                views:{
+                    'angularUiContent':{
+                        templateUrl:'tpls/AngularUI/AngularTable.html',
+                        controller:'angularTableController'
+                    }
+                }
+            })
     }]);
 })

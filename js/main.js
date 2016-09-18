@@ -9,6 +9,9 @@ require.config({
         'ui-bootstrap':'../node_modules/angular-ui-bootstrap/dist/ui-bootstrap',
         'domReady': 'http://cdn.staticfile.org/require-domReady/2.0.1/domReady.min',
         'angular-animate':'../node_modules/angular-animate/angular-animate',
+        'uiGrid':'../node_modules/angular-ui-grid/ui-grid',
+        'ngTable':'../node_modules/ng-table/dist/ng-table',
+        '_':'../node_modules/underscore/underscore',
 
         //module
         'app':'app',
@@ -20,6 +23,7 @@ require.config({
         //service
         'rootService':'services/rootService',
         'formSubmitService':'services/angularUI/formSubmitService',
+        'gridDataService':'services/angularUI/gridDataService',
 
         //controller
         'rootControllers':'controllers/rootController',
@@ -30,6 +34,8 @@ require.config({
         'accordionController':'controllers/AngularUI/accordionController',
         'directiveScopeController':'controllers/AngularUI/directiveScopeController',
         'formSubmitController':'controllers/AngularUI/formSubmitController',
+        'angularUIgridController':'controllers/AngularUI/angularUIgridController',
+        'angularTableController':'controllers/AngularUI/angularTableController',
 
         //directive
         'rootDirective':'directives/rootDirective',
@@ -66,6 +72,15 @@ require.config({
             deps:['ui-bootstrap']
         },
         'angular-animate':{
+            deps:['angular']
+        },
+        'uiGrid':{
+            deps:['angular']
+        },
+        'ngTable':{
+            deps:['angular']
+        },
+        '_':{
             deps:['angular']
         }
     },
