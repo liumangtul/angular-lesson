@@ -15,6 +15,7 @@ define([
     '_',
     'rootService',
     'rootFilter',
+    'oclazyload'
     //'angularRequire'
 ],function(){
     require(['domReady!'],function (document) {

@@ -12,6 +12,7 @@ require.config({
         'uiGrid':'../node_modules/angular-ui-grid/ui-grid',
         'ngTable':'../node_modules/ng-table/dist/ng-table',
         '_':'../node_modules/underscore/underscore',
+        'oclazyload':'../node_modules/oclazyload/dist/ocLazyLoad',
 
         //module
         'app':'app',
@@ -87,6 +88,9 @@ require.config({
         '_':{
             deps:['angular']
         },
+        'oclazyload':{
+            deps:['angular']
+        }
        /* 'angularRequire':{
             deps:['angular']
         }*/
